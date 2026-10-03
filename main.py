@@ -1,10 +1,9 @@
 import requests
-import os
 
 parameters = {
     "lat": MY_LATITUDE,
     "lon": MY_LONGITUDE,
-    "appid": os.environ.get(OWM_API_KEY),
+    "appid": "OWM_API_KEY",
     "cnt": 4,
 }
 
@@ -24,10 +23,10 @@ print(Raining)
 if Raining:
     res = requests.post(
         'https://api.textbee.dev/api/v1/gateway/send-sms',
-        headers={'x-api-key':os.environ.get(TEXTBEE_API)},
+        headers={'x-api-key':"TEXTBEE_API"},
         json={
-            'deviceId': os.environ.get(DEIVCE_ID),
-            'recipients': [os.environ.get(MY_PHONE_NUMBER)],
+            'deviceId': "DEIVCE_ID",
+            'recipients': ["MY_PHONE_NUMBER"],
             'message': "It's Raining outside. Bring an Umbrella ☔",
         },
     )
