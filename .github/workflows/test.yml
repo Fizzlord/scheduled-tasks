@@ -23,27 +23,66 @@ jobs:
 
       - name: Check secrets are configured
         env:
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          DEVICE_ID: ${{secrets.DEVICE_ID}}
+          MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER }}
+          OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+          TEXTBEE_API: ${{ secrets.TEXTBEE_API }}
+          MY_LATITUDE: ${{ vars.MY_LATITUDE }}
+          MY_LONGITUDE: ${{ vars.MY_LONGITUDE }}
         run: |
-          if [ -z "$MY_EMAIL" ]; then
-            echo "MY_EMAIL secret is not set!"
+          if [ -z "$DEVICE_ID" ]; then
+            echo "DEVICE_ID secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_EMAIL is configured"
+            echo "DEVICE_ID is configured"
           fi
 
-          if [ -z "$MY_PASSWORD" ]; then
-            echo "MY_PASSWORD secret is not set!"
+          if [ -z "$MY_PHONE_NUMBER" ]; then
+            echo "MY_PHONE_NUMBER secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_PASSWORD is configured"
+            echo "MY_PHONE_NUMBER is configured"
+          fi
+          
+          if [ -z "$OWM_API_KEY" ]; then
+            echo "OWM_API_KEY secret is not set!"
+            echo "Go to Settings > Secrets > Actions and add it."
+            exit 1
+          else
+            echo "OWM_API_KEY is configured"
+          fi
+          
+          if [ -z "$TEXTBEE_API" ]; then
+            echo "TEXTBEE_API secret is not set!"
+            echo "Go to Settings > Secrets > Actions and add it."
+            exit 1
+          else
+            echo "TEXTBEE_API is configured"
+          fi
+          
+          echo ""
+          echo "All secrets are configured!"
+          
+          if [ -z "MY_LATITUDE" ]; then
+            echo "MY_LATITUDE secret is not set!"
+            echo "Go to Settings > Secrets > Actions and add it."
+            exit 1
+          else
+            echo "MY_LATITUDE is configured"
+          fi
+          
+          if [ -z "MY_LONGITUDE" ]; then
+            echo "MY_LONGITUDE secret is not set!"
+            echo "Go to Settings > Secrets > Actions and add it."
+            exit 1
+          else
+            echo "MY_LONGITUDE is configured"
           fi
 
           echo ""
-          echo "All secrets are configured!"
+          echo "All variables are configured!"
 
       - name: Check required files exist
         run: |
@@ -60,13 +99,6 @@ jobs:
             echo "requirements.txt found"
           else
             echo "requirements.txt not found!"
-            exit 1
-          fi
-
-          if [ -f "birthdays.csv" ]; then
-            echo "birthdays.csv found"
-          else
-            echo "birthdays.csv not found!"
             exit 1
           fi
 
