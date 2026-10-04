@@ -1,9 +1,13 @@
 import requests
 
+MY_LATITUDE = MY_LATITUDE
+MY_LONGITUDE = MY_LONGITUDE
+MY_API_KEY = "OWM_API_KEY"
+
 parameters = {
     "lat": MY_LATITUDE,
     "lon": MY_LONGITUDE,
-    "appid": "OWM_API_KEY",
+    "appid": MY_API_KEY,
     "cnt": 4,
 }
 
@@ -21,11 +25,12 @@ for index in range(len_of_list):
         Raining = True
 print(Raining)
 if Raining:
+    print("yes")
     res = requests.post(
         'https://api.textbee.dev/api/v1/gateway/send-sms',
         headers={'x-api-key':"TEXTBEE_API"},
         json={
-            'deviceId': "DEIVCE_ID",
+            'deviceId': "DEVICE_ID",
             'recipients': ["MY_PHONE_NUMBER"],
             'message': "It's Raining outside. Bring an Umbrella ☔",
         },
