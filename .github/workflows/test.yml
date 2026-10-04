@@ -65,7 +65,7 @@ jobs:
           echo ""
           echo "All secrets are configured!"
           
-          if [ -z "MY_LATITUDE" ]; then
+          if [ -z "$MY_LATITUDE" ]; then
             echo "MY_LATITUDE secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
@@ -73,7 +73,7 @@ jobs:
             echo "MY_LATITUDE is configured"
           fi
           
-          if [ -z "MY_LONGITUDE" ]; then
+          if [ -z "$MY_LONGITUDE" ]; then
             echo "MY_LONGITUDE secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
