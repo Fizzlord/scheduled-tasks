@@ -41,7 +41,7 @@ jobs:
         env:
           # Your secrets are available as environment variables
           # Add more secrets in Settings > Secrets > Actions
-          DEIVCE_ID: ${{ secrets.DEVICE_ID }}
+          DEVICE_ID: ${{ secrets.DEVICE_ID }}
           MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER }}
           OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
           TEXTBEE_API: ${{ secrets.TEXTBEE_API }}
