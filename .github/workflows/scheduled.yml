@@ -41,7 +41,6 @@ jobs:
         env:
           # Your secrets are available as environment variables
           # Add more secrets in Settings > Secrets > Actions
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
           DEIVCE_ID: ${{ secrets.DEVICE_ID }}
           MY_PHONE_NUMBER: ${{ secrets.MY_PHONE_NUMBER }}
           OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
