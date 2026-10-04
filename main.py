@@ -1,8 +1,8 @@
 import requests
 import os
 
-MY_LATITUDE = os.environ.get(MY_LATITUDE)
-MY_LONGITUDE = os.environ.get(MY_LONGITUDE)
+MY_LATITUDE = float(os.environ.get("MY_LATITUDE"))
+MY_LONGITUDE = float(os.environ.get("MY_LONGITUDE"))
 MY_API_KEY = os.environ.get("OWM_API_KEY")
 
 parameters = {
